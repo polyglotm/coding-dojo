@@ -12,3 +12,8 @@ inspired: https://github.com/trekhleb/javascript-algorithms
 
 * [array](data-structure/array/array.md)
 
+
+## References
+
+* [v8docs](https://v8docs.nodesource.com/)
+
