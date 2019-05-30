@@ -7,3 +7,8 @@ I learned a few programming languages ​​and want to solve them by comparing 
 such as Java, Javascript. this project is for organizing thought of my think.
 
 inspired: https://github.com/trekhleb/javascript-algorithms
+
+## Data Structures
+
+* [array](data-structure/array/array.md)
+
