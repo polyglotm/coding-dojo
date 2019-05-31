@@ -11,6 +11,7 @@ inspired: https://github.com/trekhleb/javascript-algorithms
 ## Data Structures
 
 * [array](data-structure/array/array.md)
+* [linked-list.md](data-structure/linked-list/linked-list.md)
 
 
 ## References
