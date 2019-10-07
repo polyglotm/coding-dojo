@@ -16,5 +16,8 @@ module.exports = {
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "rules": {}
+  "rules": {
+    "no-trailing-spaces": [2, { "skipBlankLines": true }],
+    "no-param-reassign": [1],
+  }
 };
