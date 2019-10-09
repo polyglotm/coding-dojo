@@ -9,7 +9,6 @@ const firstNonRepeated = (s) => {
   
   let firstChar = null;
   map.forEach((value, key) => {
-    console.log(value, key);
     if (!firstChar && value === 1) {
       firstChar = key;
       return true;
