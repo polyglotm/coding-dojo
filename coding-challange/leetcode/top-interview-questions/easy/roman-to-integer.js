@@ -1,17 +1,16 @@
 // https://leetcode.com/problems/roman-to-integer/
 
-const parseRomanToInt = (char) => {
-  switch (char) {
-    case 'V': return 5;
-    case 'X': return 10;
-    case 'L': return 50;
-    case 'C': return 100;
-    case 'D': return 500;
-    case 'M': return 1000;
-    default: return 1;
-  }
+const parseRomanToInt = {
+  I: 1,
+  V: 5,
+  X: 10,
+  L: 50,
+  C: 100,
+  D: 500,
+  M: 1000,
 };
-const parseRomanToIntArray = (s) => s.split('').map((v) => parseRomanToInt(v));
+
+const parseRomanToIntArray = (s) => s.split('').map((v) => parseRomanToInt[v]);
 
 const romanToInt = (s) => {
   const intArray = parseRomanToIntArray(s);
