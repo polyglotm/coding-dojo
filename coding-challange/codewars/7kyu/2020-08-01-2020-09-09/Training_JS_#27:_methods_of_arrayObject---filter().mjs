@@ -1,4 +1,4 @@
-import { assertCheck } from "../codewars-helper.mjs";
+import { assertCheck } from "../../codewars-helper.mjs";
 
 function countGrade(scores) {
   return {
