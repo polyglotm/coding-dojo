@@ -50,3 +50,4 @@ console.log(isAlienSorted(['apple', 'app'], 'abcdefghijklmnopqrstuvwxyz'));
 // // false
 console.log((isAlienSorted(['app', 'apple'], 'abcdefghijklmnopqrstuvwxyz')));
 // true
+//# sourceMappingURL=953-verifying-an-alien-dictionary.js.map
