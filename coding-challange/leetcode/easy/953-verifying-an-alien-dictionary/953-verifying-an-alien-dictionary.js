@@ -16,38 +16,52 @@ Tags:
 ### JavaScript
 
 */
-var __spreadArray = (this && this.__spreadArray) || function (to, from) {
-    for (var i = 0, il = from.length, j = to.length; i < il; i++, j++)
-        to[j] = from[i];
-    return to;
-};
-function isAlienSorted(words, order) {
-    var convertedWords = words.slice()
-        .map(function (e) { return __spreadArray([], e).map(function (char) { return order.indexOf(char); }); });
-    var sortedWords = convertedWords.slice();
-    sortedWords.sort(function (a, b) {
-        for (var i = 0; i < b.length; i += 1) {
-            if (a[i] === undefined) {
-                return -1;
-            }
-            if (a[i] > b[i]) {
-                return 0;
-            }
-            if (a[i] < b[i]) {
-                return -1;
-            }
-        }
-        return 0;
+
+const isAlienSorted = function (words, order) {
+  const copiedArray = words.slice();
+
+  copiedArray.sort((comparisonTarget, currunt) => {
+    let result = 0;
+
+    [...currunt].some((e, i) => {
+      const currentCharIndex = order.indexOf(e);
+      const comparisonTargetCharIndex = order.indexOf(comparisonTarget[i]);
+
+      if (comparisonTargetCharIndex === -1) {
+        result = -1;
+        return true;
+      }
+
+      if (comparisonTargetCharIndex - currentCharIndex) {
+        result = comparisonTargetCharIndex - currentCharIndex;
+        return true;
+      }
     });
-    return JSON.stringify(convertedWords) === JSON.stringify(sortedWords);
-}
-// test
-console.log(isAlienSorted(['hello', 'leetcode'], 'hlabcdefgijkmnopqrstuvwxyz'));
-// // true
-console.log(isAlienSorted(['word', 'world', 'row'], 'worldabcefghijkmnpqstuvxyz'));
-// // false
-console.log(isAlienSorted(['apple', 'app'], 'abcdefghijklmnopqrstuvwxyz'));
-// // false
-console.log((isAlienSorted(['app', 'apple'], 'abcdefghijklmnopqrstuvwxyz')));
-// true
-//# sourceMappingURL=953-verifying-an-alien-dictionary.js.map
+
+    return result;
+  });
+
+  return JSON.stringify(copiedArray) === JSON.stringify(words);
+};
+
+
+test('test', () => {
+  expect(isAlienSorted(["hello", "leetcode"], "hlabcdefgijkmnopqrstuvwxyz")).toBeTruthy();
+  // Output: true
+  // Explanation: As 'h' comes before 'l' in this language,
+  // then the sequence is sorted.
+
+  expect(isAlienSorted(["word", "world", "row"], "worldabcefghijkmnpqstuvxyz")).toBeFalsy();
+  // Output: false
+  // Explanation: As 'd' comes after 'l' in this language,
+  // then words[0] > words[1], hence the sequence is unsorted.
+
+  expect(isAlienSorted(["apple", "app"], "abcdefghijklmnopqrstuvwxyz")).toBeFalsy();
+  // Output: false
+  // Explanation: The first three characters "app" match,
+  // and the second string is shorter (in size.)
+  // According to lexicographical rules "apple" > "app",
+  // because 'l' > '∅', where '∅' is defined as the blank character which is less than any other character (More info).
+
+  expect(isAlienSorted(["aa", "a"], "abqwertyuioplkjhgfdszxcvnm")).toBeFalsy();
+});
