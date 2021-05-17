@@ -4,7 +4,7 @@
 # leetcode/easy/70. Climbing Stairs
 Difficulty: easy
 URL: https://leetcode.com/problems/climbing-stairs/
-Tags: dynamic-programming
+Tags:
 
 ## Approach
 
@@ -14,23 +14,33 @@ Tags: dynamic-programming
 
 ## Solution
 ### JavaScript
-
 */
 
-const climbStairs = (k, step = 3, n2 = 1, n1 = 1) => {
-  if (k === 1) {
-    return 1;
-  }
-  if (k === 2) {
-    return 2;
-  }
-  if (k >= step) {
-    return climbStairs(k, step + 1, n1, n2 + n1);
+// -------------------------
+// folding solution
+// -------------------------
+const climbStairs = (n, prevStep = 0, currentstep = 1) => {
+  if (n === 0) {
+    return currentstep;
   }
   
-  return n2 + n1;
+  return climbStairs(n - 1, currentstep, prevStep + currentstep);
 };
 
-// test
-console.log(climbStairs(4), 5);
-console.log(climbStairs(5), 8);
+test('test climbStairs', () => {
+  expect(climbStairs(1)).toEqual(1);
+  expect(climbStairs(2)).toEqual(2);
+  expect(climbStairs(3)).toEqual(3);
+  expect(climbStairs(45)).toEqual(1836311903);
+});
+
+// -------------------------
+// recursion - naive solution
+// -------------------------
+const climbStairs = function (n) {
+  if (n < 3) {
+    return n;
+  }
+  
+  return climbStairs(n - 1) + climbStairs(n - 2);
+};
