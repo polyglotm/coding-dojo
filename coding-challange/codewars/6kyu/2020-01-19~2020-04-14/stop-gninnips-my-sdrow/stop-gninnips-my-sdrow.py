@@ -12,3 +12,4 @@ TestCase().assertEqual(spin_words("This is another test"), "This is rehtona test
 TestCase().assertEqual(spin_words("You are almost to the last test"), "You are tsomla to the last test")
 TestCase().assertEqual(spin_words("Just kidding there is still one more"), "Just gniddik ereht is llits one more")
 TestCase().assertEqual(spin_words("Seriously this is the last one"), "ylsuoireS this is the last one")
+ㄹ                         ㄹ
